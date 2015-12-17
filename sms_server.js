@@ -70,7 +70,7 @@ SMS.send = function (options) {
         // call the sync version of our API func with the parameters from the method call
         var result = sendSMSSync(options, function (err, responseData) { //this function is executed when a response is received from Twilio
             if (err) { // "err" is an error received during the request, if any
-                throw new Meteor.Error("Error sending SMS ", err);
+                throw new Meteor.Error("Error sending SMS ", err.message);
             }
             return responseData;
         });
@@ -82,7 +82,7 @@ SMS.send = function (options) {
 };
 
 SMS.phoneTemplates = {
-    from: '+972545999999',
+    from: SMS.twilio.FROM || '+972545999999',
     text: function (user, code) {
         return 'Welcome your invitation code is: ' + code;
     }
