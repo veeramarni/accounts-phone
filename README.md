@@ -1,6 +1,7 @@
 Accounts-Phone
 =========================
 (forked from okland/accounts-phone to fix [#13](https://github.com/okland/accounts-phone/issues/13))
+
 Accounts-Phone is a Meteor package that let you authenticate by phone number.
 The package use SMS code verification to verify the user account.
 The package is based and inspired by Meteor Accounts-Password package.
