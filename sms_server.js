@@ -65,6 +65,7 @@ SMS.send = function (options) {
             return;
     if (SMS.twilio) {
         var client = Twilio(SMS.twilio.ACCOUNT_SID, SMS.twilio.AUTH_TOKEN);
+        SMS.twilio.FROM && (options.from = SMS.twilio.FROM);
         // Send SMS  API async func
         var sendSMSSync = Meteor.wrapAsync(client.sendMessage, client);
         // call the sync version of our API func with the parameters from the method call
@@ -82,7 +83,7 @@ SMS.send = function (options) {
 };
 
 SMS.phoneTemplates = {
-    from: SMS.twilio.FROM || '+972545999999',
+    from: '+972545999999',
     text: function (user, code) {
         return 'Welcome your invitation code is: ' + code;
     }
