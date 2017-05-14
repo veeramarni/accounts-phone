@@ -11,7 +11,6 @@ var AccountGlobalConfigs = {
 
 _.defaults(Accounts._options, AccountGlobalConfigs);
 
-
 /// Phone
 
 var Phone = Npm.require('phone');
